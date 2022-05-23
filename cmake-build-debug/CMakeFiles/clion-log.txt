@@ -1,0 +1,6 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -S /Users/niccolozanotti/Documents/GitHub/relazione-passa-banda -B /Users/niccolozanotti/Documents/GitHub/relazione-passa-banda/cmake-build-debug
+-- I could not find the pdftops command.
+-- Consider getting pdftops from Poppler to convert PDF images to EPS images.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/niccolozanotti/Documents/GitHub/relazione-passa-banda/cmake-build-debug
