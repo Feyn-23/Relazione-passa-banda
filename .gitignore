@@ -1,4 +1,4 @@
-*.out/
-*.cmake-build-debug/
+*out/
+*cmake-build-dedbug/
 *.DS_Store
-*.idea/
+*idea/
