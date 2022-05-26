@@ -1,6 +1,39 @@
-I valori dei componenti, utilizzati per l’esperienza di laboratorio qui illustrata, sono stati collegati in serie sulla breadbord della scheda di acquisizione dati NI Elvis II e sono stati scelti in maniera tale da ottenere un fattore di qualità Q ragionevole.
+I valori dei componenti, utilizzati per l’esperienza di laboratorio qui illustrata e collegati in serie sulla breadbord della scheda di acquisizione dati NI Elvis II, sono stati scelti in maniera tale da ottenere un fattore di qualità Q ragionevole.
 In particolare si è deciso di utilizzare una resistenza R....., una capacità C......  e un’induttanza L....., caratterizzata da una resistenza interna corrispondente a.... Questi valori sono stati misurati mediante l’utilizzo del multimetro digitale di ELVIS.
 Si è tenuta in considerazione, inoltre, la resistenza interna del generatore di valore....., che perciò risulta essere non del tutto trascurabile rispetto alla resistenza totale del circuito analizzato.
 I capi di ogni componente, cosi come gli estremi del circuito, illustrato nella Figura 1., sono stati collegati a un canale della scheda per la lettura dei valori di ampiezza e fase della tensione tramite il programma LabView.
 Per realizzare questa esperienza di laboratorio sono stati raccolti.....
 L’ampiezza, la frequenza e la fase del segnale di tensione utilizzati per l’analisi dati sono stati ottenuti da ogni acquisizione mediante l’utilizzo del subVI “Extract Single Tone Information” del programma Labview, utilizzato per l’acquisizione dei dati.
+
+
+This is the circuit
+    \begin{figure}[h]
+        \centering
+        \begin{circuitikz}
+            % Circuit
+            \draw[line width=0.7]
+            (2,7) to [sinusoidal voltage source, l_=$V_S$] (2,1)
+            (2,7) to [resistor, l_=$R$]  ++(8,0)to [inductor, l_=$L$] ++(0,-6) to [capacitor,n=cap] +(-8,0) (cap.s) node[above]{$C$};
+            \draw[line width=0.7]
+            (3,3) to[short,*-] (2,3);
+            \draw[line width=0.7]
+            (3,5) to[short,*-] (2,5);
+            \draw[line width=0.7]
+            (5,6) to[short,*-] (5,7);
+            \draw[line width=0.7]
+            (7,6) to[short,*-] (7,7);
+            \draw[line width=0.7]
+            (9,5) to[short,*-] (10,5);
+            \draw[line width=0.7]
+            (9,3) to[short,*-] (10,3);
+            \draw[line width=0.7]
+            (5,2) to[short,*-] (5,1);
+            \draw[line width=0.7]
+            (7,2) to[short,*-] (7,1);
+            % Grid
+% 		\draw[help lines] (0,0) grid (10,10)	;
+        \end{circuitikz}
+        \caption{questa e la caption}
+        \label{fig:circuit}
+    \end{figure}
+
