@@ -1,13 +1,32 @@
-I valori dei componenti, utilizzati per l’esperienza di laboratorio qui illustrata e collegati in serie sulla breadbord della scheda di acquisizione dati NI Elvis II, sono stati scelti in maniera tale da ottenere un fattore di qualità Q ragionevole.
-In particolare si è deciso di utilizzare una resistenza R....., una capacità C......  e un’induttanza L....., caratterizzata da una resistenza interna corrispondente a.... Questi valori sono stati misurati mediante l’utilizzo del multimetro digitale di ELVIS.
-Si è tenuta in considerazione, inoltre, la resistenza interna del generatore di valore....., che perciò risulta essere non del tutto trascurabile rispetto alla resistenza totale del circuito analizzato.
-I capi di ogni componente, cosi come gli estremi del circuito, illustrato nella Figura 1., sono stati collegati a un canale della scheda per la lettura dei valori di ampiezza e fase della tensione tramite il programma LabView.
-Per realizzare questa esperienza di laboratorio sono stati raccolti.....
-L’ampiezza, la frequenza e la fase del segnale di tensione utilizzati per l’analisi dati sono stati ottenuti da ogni acquisizione mediante l’utilizzo del subVI “Extract Single Tone Information” del programma Labview, utilizzato per l’acquisizione dei dati.
 
 
-This is the circuit
-    \begin{figure}[h]
+
+
+Il circuito utilizzato è composto da una resistore, un induttore e da un condensatore collegati in serie
+sulla breadbord della scheda di acquisizione dati NI Elvis II®.
+I valori scelti per i componenti sono i seguenti: $R_r = (996.7 \pm 1.4) \ \Omega$, $C = (1.46 \pm 0.01)10^{-9} \ F$,
+$L = (47.41 \pm 0.05)10^{-2} H$ con resistenza interna $R_{\text{ind}} = (125.82 \pm 0.16) \ \Omega$. La resistenza interna
+del generatore ammonta a $R_{gen} = 50 \Omega$.
+Avendo utilizzato il multimetro digitale di ELVIS II per effettuare le precedenti misurazioni sono state calcolate le
+incertezze in accordo con quanto riportato sulla scheda tecnica di tale strumento. Si è valutata l'entità delle possibili
+fluttuazioni statistiche mediante misurazioni ripetute per poi confrontare i dati ottenuti con i precedenti. Sono risultate
+essere predominanti le incertezze standard. %#TODO come cazzo le chiamo?
+
+
+I valori precedenti sono stati scelti in maniera tale da ottenere
+un fattore di qualità $Q$ ragionevole per una buona osservazione del fenomeno della risonanza. %#TODO commento su Q
+%#TODO osservcazione sample rate elvis sulla scelta dei valori
+
+I capi di ogni componente, cosi come gli estremi del circuito, illustrato in Figura \ref{fig:circuit}, sono stati collegati
+ad un canale della scheda per poter eseguire la lettura dei valori di ampiezza e fase della tensione su di essi.
+Le suddette misure sono state ottenute tramite l'utilizzo del subVI “Extract Single Tone Information” del software di acquisizione
+\emph{LabView}.
+
+Per realizzare questa esperienza di laboratorio sono stati raccolti $500$ campioni a frequenza costante in varie condizioni
+con una frequenza di $250000$ campioni al secondo, poi, effettuando uno sweep di frequenza, si sono raccolti dati ad
+intervalli di $50Hz$ fra $5kHz$ e $35KHz$. %#TODO non proprio cosi uguale
+
+    \begin{figure}
         \centering
         \begin{circuitikz}
             % Circuit
@@ -33,7 +52,7 @@ This is the circuit
             % Grid
 % 		\draw[help lines] (0,0) grid (10,10)	;
         \end{circuitikz}
-        \caption{questa e la caption}
+        \caption{\emph{Schema del circuito realizzato.}}
         \label{fig:circuit}
     \end{figure}
 
