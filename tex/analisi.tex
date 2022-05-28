@@ -1,15 +1,26 @@
-\subsection{Osservazione qualitativa degli andamenti (si puo cambiare)}
+\subsection{Osservazione qualitativa degli andamenti}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{../figs/tensione-tempo.pdf}
-    \caption{ampiezze}\label{fig:tensione-tempo}
+    \caption{\emph{I grafici mostrano gli andamenti della tensione ai capi dei vari componenti quando il generatore
+    oscilla ad una frequenza di $f=16kHz$ e di $f=22kHz$; questi sono valori prossimi a quelli che definiscono la banda del filtro.}}
+    \label{fig:tensione-tempo}
 \end{figure}
 
-Una volta scelti i valori dei componenti da utilizzare per l’esperienza di laboratorio e calcolato il valore atteso della
-frequenza di risonanza che, come citato precedentemente, corrisponde a...., è stato analizzato dal punto di vista qualitativo il comportamento del circuito per verificare che fosse in accordo con quanto previsto e descritto nella sezione “Introduzione”.
-Come si può osservare nella figura 2., andando a studiare frequenze costanti della tensione in ingresso, prossime al valore di risonanza, l’andamento della tensione sulla resistenza è risultato essere in fase con quello indotto sul generatore, come ci si aspettava dal punto di vista teorico.
-L’anomalia riscontrata sul primo periodo delle acquisizioni effettuate a tensioni costanti verrà analizzata e descritta nella sezione “Appendice” di seguito.
+%#TODO scrivere che la risposta infrequenza viene fatta grazie al function genrator di elvis
+
+Una volta realizzato il circuito, ne è stato valutato il comportamento qualitativo. A tal proposito si è valutato visivamente
+l'andamento temporale delle differenze di potenziale sui vari elementi circuitali mediante l'utilizzo dell'oscilloscopio digitale disponibile in
+laboratorio.
+In secondo luogo, per una valutazione a posteriori, sono stati raccolti tali dati tramite la DAQ configurata.
+Ciò è stato fatto mantenendo la frequenza del generatore costante. In figura \ref{fig:tensione-tempo} sono
+mostrati tali andamenti per due valori significativi di $f$ in quanto vicini ai valori di taglio della frequenza, caratteristici
+di questo circuito.
+%#TODO commento su come ampiezze della tensione hanno senso e anche la fase dopo la risonanza
+l’andamento della tensione sulla resistenza è risultato essere in fase con quello indotto sul generatore, come ci si
+aspettava dal punto di vista teorico.
+
 
 \subsection{Analisi delle ampiezze}
 
