@@ -21,58 +21,90 @@ di questo circuito.
 l’andamento della tensione sulla resistenza è risultato essere in fase con quello indotto sul generatore, come ci si
 aspettava dal punto di vista teorico.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Analisi delle ampiezze}
 
-Gli andamenti della tensione ai capi di ciascun componente e del circuito stesso, ottenuti da calcoli svolti dal programma di acquisizione dati Labview al variare della frequenza, sono mostrati nella figura 3.
-L’incertezza associata alle tensione è stata ottenuta come la deviazione standard delle misure associate all’ampiezza della tensione agli estremi, che sono perciò posti costanti, ottenendo quindi come valore …..
-Qui di seguito sono mostrate le funzioni che descrivono l’andamento del modulo dell’ampiezza ai capi di ciascun componente e il procedimento adottato per ricarvarle viene analizzato con più attenzione nella sezione “Appendice”.
-
-\[
-    V_R = \frac{R_rV_0}{\sqrt{{(R_r+R)}^2+{ \left(\omega L - \frac{1}{\omega C}\right)}^2}}
-\]
-\[
-    V_L = \frac{\omega L V_0}{\sqrt{R^2+{ \left(\omega L - \frac{1}{\omega C}\right)}^2}}
-\]
-\[
-    V_C = \frac{\frac{V_0}{\omega C}}{\sqrt{R^2+{ \left(\omega L - \frac{1}{\omega C}\right)}^2}}
-\]
+Quella che segue è l'analisi della risposta in frequenza del circuito.
+I dati relativi alle ampiezza della tensione ai capi dei vari elementi, sono visibili in Figura \ref{fig:ampiezzeRLC}
+dove sono stati riportati anche i fit secondo i modelli ipotizzati.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{../figs/Risposta-in-frequenza-ampiezze.pdf}
-    \caption{ampiezze}\label{fig:ampiezzeRLC}
+    \caption{\emph{Andamento dell’ampiezza della tensione sulle componenti del circuito al variare
+    della frequenza del generatore con sovrapposte relative curve best-fit.}}
+    \label{fig:ampiezzeRLC}
 \end{figure}
+Non conoscendo in maniera precisa il funzionamento del subVI 'Extract singleton information', che ha fornito le misurazioni
+di ampiezze e fasi, è stato scelto di stimare le incertezze su tali dati tramite il rumore di fondo. E stata quindi
+calcolata la deviazione standard delle misure associate all’ampiezza della tensione agli estremi, che sono posti
+come costanti, ottenendo $\sigma = 3.9 10^{-3} Hz$
+
+Gli andamenti attesi per le varie ampiezze della tensione sono i seguenti(vedi Appendice):
+
+\begin{equation}\label{eq:amp-V_R}
+    V_R = \frac{R_rV_0}{\sqrt{ R^2 +{ \left(\omega L - \frac{1}{\omega C}\right)}^2}}
+\end{equation}
+\begin{equation}
+    V_L = \frac{\omega L V_0}{\sqrt{R^2+{ \left(\omega L - \frac{1}{\omega C}\right)}^2}}
+\end{equation}
+\begin{equation}
+    V_C = \frac{\frac{V_0}{\omega C}}{\sqrt{R^2+{ \left(\omega L - \frac{1}{\omega C}\right)}^2}}
+\end{equation}
 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=.9\textwidth]{../figs/Risposta-in-frequenza-ampiezza-resistenza.pdf}
-    \caption{cambia grafico con nuovi valori fit parametri}\label{fig:ampiezzeR}
+    \caption{\emph{Il grafico mostra in dettaglio l'ampiezza della tensione sul resistore, con sovrapposto relativo fit
+        (equazione \ref{eq:amp-V_R}).}}\label{fig:ampiezzeR}
 \end{figure}
 
+Si è distinto tra il valore della resistenza del resistore stesso,$R_r$, e quello della resistenza totale opposta nel
+circuito, $R$.
+Da una prima analisi dei dati è stato verificato l'andamento caratteristico del filtro, con le ampiezze massimizzate
+in corrispondenza di un valore specifico di frequenza.
+
+%#TODO scrivere diversametne questa cosa
+%Osservando qualitativamente il grafico, da esso si nota una leggera diminuzione dell’ampiezza della tensione indotta
+%nel circuito in valori prossimi a quello stimato come di risonanza. Cio` si spiega con la presenza della resistenza
+%interna del generatore, che provoca una caduta di potenziale tanto maggiore quanto lo `e la corrente, che si sa essere
+%massima proprio in condizioni di risonanza.
+Dai fit sono emersi valori del $\tilde{\chi}^2$ piuttosto elevati. Questo è dovuto ad una sottostima della valutazione
+dell'incertezza sui valori di ampiezza di $V$. Si è, pertanto, scelto di utilizzare come indice della goodness-of-fit
+il cosiddetto coefficiente di determinazione $R^2$.
+Il fit più significativo è risultato essere quello dell'ampiezza di $V_R$, mostrato in Figura \ref{fig:ampiezzeR}, con
+un valore di $R^2 = 0.99946$. Da tale fit i valori dei componenti risultano essere $R_r = (1011.8 \pm 7.2) \ \Omega$,
+$L = (4.705 \pm 0.017)10^{-2}$ e $C = (1.500 \pm 0.005)10^{-9}$ F. Si è scelto di utilizzare le "incertezze
+standard" calcolate come
+\[
+    \delta p_k = \sqrt{\tilde{\chi}^2 C_{kk}}
+\]
+dove $C_kk$ è l'elemento corrispondente a $p_k$ nella diagonale della matrice di covarianza.
+
+Si e valutata la frequenza di risonanza con i parametri ottenuti dal fit associato alla resistenza usando l'equazione
+\ref{eq:res-pulsation} ottenendo $f_0 = (18.95 \pm 0.05) kHz$, con le incertezze propagate in quadratura.
+
+In secondo luogo, studiando il massimo dell'ampiezza di $V_R$, si è stimato un range di valori centrato in
+una certa frequenza $f$ che corrisponde teoricamente a quella di risonanza, per quanto detto in precedenza.
 
 
+Preso l’estremo inferiore della barra di errore relativa al punto di massimo estratto dal fit, si sono poi cercati i
+punti in cui l’estremo superiore della barra di errore corrispondesse a tale valore massimo. In questo modo, però, si
+è sovrastimata l’incertezza relativa alla frequenza di risonanza, calcolandola come il valore medio di questi due estremi.
+Da tale procedura si è ottenuto un valore $f_0 = (18.80 \pm 0.28)kHz$.
+La significatività di tale risultato è ridotta, avendo utilizzato una sovrastima dell'incertezza.
 
-Rr rappresenta la resistenza escludendo però quelle interne a generatore e induttanza, mentre omega indica la pulsazione della tensione applicata.
-Andando ad analizzare l’andamento della tensione ai capi di ciascun componente e del circuito stesso, si può notare che l’ampiezza della tensione indotta nel circuito prensenta un picco per valori della frequenza prossimi a quella di risonanza per poi presentare valori più bassi via via che ci si allontana da questa condizione.
-Questo effetto è dovuto alla resistenza interna del generatore che provoca una caduta di potenziale proporzionale alla corrente che attraversa il circuito, il cui valore in modulo è massimo proprio in corrispondenza della frequenza di risonanza.
-I valori del chi quadro che sono stati ottenuti dai fit sui tre componenti sono...
-Si è poi optato di calcolare il valore della frequenza di risonanza con i parametri ottenuti dal fit mediante l’utilizzo dell’equazione 1.
-Andando a considerare il fit associato alla resistenza, mostrato in figura 4, i parametri utilizzati sono L=…. e C =….., in questo modo si è controllato se il valore della frequenza di risonanza atteso e calcolato a livello teorico potesse coincidere con quello ottenuto, che è risultato essere di...., dove le incertezze sono state propagate in quadratura.
-Un modo alternativo per determinare il valore della frequenza di risonanza è studiare il punto di massimo del grafico relativo all’ampiezza della tensione ai capi della resistenza utilizzata per l’esperienza di laboratorio, ma, non essendo sicuri dell’incertezza sulla misura della tensione, si è deciso di stimare un range di valori.
-Preso l’estremo inferiore della barra di errore relativa al punto di massimo estratto dal fit, si sono poi cercati i punti in cui l’estremo superiore della barra di errore corrispondesse a tale valore massimo. In questo modo, però, si è sovrastimata l’incertezza relativa alla frequenza di risonanza, calcolandola come il valore medio di questi due estremi.
-Si è ottenuto in questo modo un valore della frequenza di risonanza pari a....
-Il valore centrale dell’intervallo scelto è consistente con quanto ottenuto utilizzando i parametri del fit, ma a causa della sovrastima dell’incertezza il risultato può essere considerato poco rilevante.
+%#TODO SCRIVERLO NOSTRO
+Un'anamolia emersa dall'analisi dei dati raccolti riguarda il valore della resistenza totale del circuito, che, dai fit
+dei dati raccolti risulta sempre essere largamente superiore al valore teorico. In Appendice si analizza meglio questa
+evenienza.
 
-Parlare eventualmente del valore più alto della resistenza.
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Analisi delle fasi}
 
 Le funzioni che descrivono gli andamenti attesi delle fasi sono le seguenti:
@@ -89,8 +121,42 @@ Le funzioni che descrivono gli andamenti attesi delle fasi sono le seguenti:
 \begin{figure}[h]
     \centering
     \includegraphics[width=.9\textwidth]{../figs/Risposta-in-frequenza-fasi.pdf}
-    \caption{fasi }\label{fig:fasi}
+    \caption{\emph{Andamento dello sfasamento della tensione sulle componenti al variare della frequenza del generatore.}}
+    \label{fig:fasi}
 \end{figure}
 
-Si è poi pensato di estrarre il valore corrispondente a una condizione di fase nulla tra la curva associata alla resistenza e quella del generatore, che risulta essere di..., andando a ripetere lo stesso procedimento analizzando questa volta la curva associata all’induttanza ma, considerando uno sfasamento di 90 gradi, si è ottenuto una misura della frequenza pari a... anch’essa vicina al valore atteso, anche se risulta essere sovrastimata.
+I dati sullo sfasamento della tensione sonostati raccolti in concomitanza con quelli sulle ampiezze. È stato scelto di
+sottrarre ai dati sulle fasi di $R, L , C$ i corrispondenti valori di $\phi_{\text{gen}}$ in quanto quello che
+si dovrebbe misurare è lo sfasamento rispetto al generatore.
+In figura \ref{fig:fasi} sono visibili tali dati assieme alle curve best-fit, ottenute considerando solamente i valori
+fra $10  \ \text{e} \ 25 kHz$ con un valore caratteristico di $R^2 = 0.986$. Il rumore di fondo è stato valutato in
+maniera analoga a quanto fatto per le ampiezze, estraendo la deviazione standard degli sfasamenti a $f$ costante,con
+$\sigma_{\phi} = 0.002$ rad.
+Considerando la curva associata alla resistenza, si è pensato di estrarre il punto della funzione ottenuta dal
+fit di valore nullo e stimare un range, definito dalla barra di errore. Il valore corrispondente a quando questa curva si trova ad avere fase nulla con il generatore
+è quindi $f_0 = (19.10 \pm 0.10)kHz$, prossimo al valore atteso. Ripetendo il procedimento con la curva dell’induttanza,
+ma stavolta cercando uno sfasamento di $\frac{\pi}{2}$, si è avuto nuovamente un esito vicino ai precedenti, ovvero
+$f_0 = (19.35 \pm 0.15)kHz$.
+
+%#TODO valuta se scrivere del ritardo ecc...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

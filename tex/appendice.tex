@@ -1,10 +1,11 @@
-Come si può notare in Figura 6. le ampiezze nei primi periodi presentano dei picchi più elevati per poi stabilizzarsi a un valore massimo costante, questo comportamento però risulta essere anomalo dal momento che il circuito analizzato in questa esperienza di laboratorio non ha le caratteristiche tipiche di un transiente.
-Si è cercato, perciò, di risolvere l’anomalia ripetendo le misure con componenti equivalenti, senza però ottenere nessun risultato positivo nella risoluzione del problema. (L’ho scritto perchè sembra una cosa logica anche se non l’abbiamo fatta).
-Dopo vari tentativi, si è ipotizzato che questa anomalia sia dovuta al modo in cui sono raccolti i primi dati dal programma di acquisizione Labview, in particolar modo si è pensato che il problema potesse essere dovuto al trigger del software.
-
 Al fine di studiare il comportamento del circuito analizzato in questa esperienza di laboratorio, si è utilizzato il concetto di impedenza, che generalizza il concetto più specifico di resistenza nel caso di correnti sinusoidali.
 L’impedenza totale è data dalla somma delle impedenze di ciascun componente, sfruttando il fatto che questi siano posti in serie. Perciò avremo...
 
 
 dove j indica l’unità immaginaria, mentre il termine tra parentesi indica la reattanza, costituita in parte dal contributo induttivo e in parte da quello capacitivo.
 Per trovare la corrente nel circuito invece è stata applicata la legge di Ohm simbolica, sfruttando il formalismo dei fasori e, moltiplicando poi il valore ottenuto per l’impedenza ai campi di ciascun componente, si può trovare l’andamento della tensione su di essi.
+
+Si e ipotizzato che la resistenza ag- giuntiva potesse essere dovuta a un difetto del capacitore, unico componente per
+il quale non si era precedentemente cercato un valore di resistenza, non dovendola avere. Tuttavia, anche con una successiva
+verifica, isolandolo dal circuito, esso risulta non essere il problema. Con prove ripetute si ottiene lo stesso risultato e si
+`e ipotizzato quindi che la causa dell’anomalia possa essere il modo in cui i dati sono raccolti dal LabView.
