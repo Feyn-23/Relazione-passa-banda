@@ -1,35 +1,35 @@
 
 
+\begin{figure}
+    \centering
+    \begin{circuitikz}
+        % Circuit
 
+        \draw[line width=0.7]
+        (2,5) to [sinusoidal voltage source, l_=$V_{\text{gen}}$] (2,1)
+        (2,5) to [resistor, l_=$R$]  ++(8,0)to [inductor, l_=$L$] ++(0,-4) to [capacitor, n=cap] +(-8,0)
+        (cap.s) node[above]{$C$};
 
-Il circuito utilizzato è composto da una resistore, un induttore e da un condensatore collegati in serie
-sulla breadbord della scheda di acquisizione dati NI Elvis II®.
-I valori scelti per i componenti sono i seguenti: $R_r = (996.7 \pm 1.4) \ \Omega$, $C = (1.46 \pm 0.01)10^{-9} \ F$,
-$L = (47.41 \pm 0.05)10^{-2} H$ con resistenza interna $R_{\text{ind}} = (125.82 \pm 0.16) \ \Omega$. La resistenza interna
-del generatore ammonta a $R_{gen} = 50 \Omega$.
-Avendo utilizzato il multimetro digitale di ELVIS II per effettuare le precedenti misurazioni sono state calcolate le
-incertezze in accordo con quanto riportato sulla scheda tecnica di tale strumento. Si è valutata l'entità delle possibili
-fluttuazioni statistiche mediante misurazioni ripetute per poi confrontare i dati ottenuti con i precedenti. Sono risultate
-essere predominanti le incertezze standard. %#TODO come cazzo le chiamo?
-
-
-I valori precedenti sono stati scelti in maniera tale da ottenere
-un fattore di qualità $Q$ ragionevole per una buona osservazione del fenomeno della risonanza. %#TODO commento su Q
-%#TODO osservcazione sample rate elvis sulla scelta dei valori
-
-I capi di ogni componente, cosi come gli estremi del circuito, illustrato in Figura \ref{fig:circuit}, sono stati collegati
-ad un canale della scheda per poter eseguire la lettura dei valori di ampiezza e fase della tensione su di essi.
-Le suddette misure sono state ottenute tramite l'utilizzo del subVI “Extract Single Tone Information” del software di acquisizione
-\emph{LabView}.
-
-Per realizzare questa esperienza di laboratorio sono stati raccolti $500$ campioni a frequenza costante in varie condizioni
-con una frequenza di $250000$ campioni al secondo, poi, effettuando uno sweep di frequenza, si sono raccolti dati ad
-intervalli di $50Hz$ fra $5kHz$ e $35KHz$. %#TODO non proprio cosi uguale
-
-    \begin{figure}
-        \centering
-        \begin{circuitikz}
-            % Circuit
+        %% capi di gen
+        \draw[line width=0.7]
+        (3,2) to[short,*-] (2,2);
+        \draw[line width=0.7]
+        (3,4) to[short,*-] (2,4);
+        %% capi di R
+        \draw[line width=0.7]
+        (5,4) to[short,*-] (5,5);
+        \draw[line width=0.7]
+        (7,4) to[short,*-] (7,5);
+        %% capi di L
+        \draw[line width=0.7]
+        (9,4) to[short,*-] (10,4);
+        \draw[line width=0.7]
+        (9,2) to[short,*-] (10,2);
+        %% capi di C
+        \draw[line width=0.7]
+        (5,2) to[short,*-] (5,1);
+        \draw[line width=0.7]
+        (7,2) to[short,*-] (7,1);
 %            \draw[line width=0.7]
 %            (2,7) to [sinusoidal voltage source, l_=$V_S$] (2,1)
 %            (2,7) to [resistor, l_=$R$]  ++(8,0)to [inductor, l_=$L$] ++(0,-6) to [capacitor,n=cap] +(-8,0) (cap.s) node[above]{$C$};
@@ -49,36 +49,21 @@ intervalli di $50Hz$ fra $5kHz$ e $35KHz$. %#TODO non proprio cosi uguale
 %            (5,2) to[short,*-] (5,1);
 %            \draw[line width=0.7]
 %            (7,2) to[short,*-] (7,1);
-            \draw[line width=0.7]
-            (2,5) to [sinusoidal voltage source, l_=$V_{\text{gen}}$] (2,1)
-            (2,5) to [resistor, l_=$R$]  ++(8,0)to [inductor, l_=$L$] ++(0,-4) to [capacitor, n=cap] +(-8,0)
-            (cap.s) node[above]{$C$};
+    \end{circuitikz}
+    \caption{\emph{Schema del circuito realizzato.}}
+    \label{fig:circuit}
+\end{figure}
+Il circuito realizzato, illustrato in Figura \ref{fig:circuit}, è composto da una resistore, un induttore e da un condensatore, collegati in serie
+sulla breadbord della scheda di acquisizione dati NI Elvis II\textregistered.
 
-            %% capi di gen
-            \draw[line width=0.7]
-            (3,2) to[short,*-] (2,2);
-            \draw[line width=0.7]
-            (3,4) to[short,*-] (2,4);
-            %% capi di R
-            \draw[line width=0.7]
-            (5,4) to[short,*-] (5,5);
-            \draw[line width=0.7]
-            (7,4) to[short,*-] (7,5);
-            %% capi di L
-            \draw[line width=0.7]
-            (9,4) to[short,*-] (10,4);
-            \draw[line width=0.7]
-            (9,2) to[short,*-] (10,2);
-            %% capi di C
-            \draw[line width=0.7]
-            (5,2) to[short,*-] (5,1);
-            \draw[line width=0.7]
-            (7,2) to[short,*-] (7,1);
+I valori scelti per i componenti sono i seguenti: $R_r = (996.7 \pm 1.4) \ \Omega$, $C = (1.46 \pm 0.01) \times 10^{-9} \ F$,
+$L = (47.41 \pm 0.05) \times 10^{-2} H$ con resistenza interna $R_{\text{ind}} = (125.82 \pm 0.16) \ \Omega$. La resistenza interna
+del generatore ammonta a $R_{gen} = 50 \Omega$. \\
+Avendo utilizzato il multimetro digitale di ELVIS II, per effettuare le precedenti misurazioni sono state calcolate le
+incertezze in accordo con quanto riportato sulla scheda tecnica di tale strumento. Si è valutata l'entità delle possibili
+fluttuazioni statistiche mediante misurazioni ripetute, per poi confrontare i dati ottenuti con i precedenti.
+Sono risultate essere predominanti le incertezze calcolate secondo le specifiche della scheda di acquisizione.
+I valori precedenti sono stati scelti in maniera tale da ottenere
+un fattore di qualità $Q$ ragionevole per una buona osservazione del fenomeno della risonanza.
 
-            % Grid
-% 		\draw[help lines] (0,0) grid (10,10)	;
-        \end{circuitikz}
-        \caption{\emph{Schema del circuito realizzato.}}
-        \label{fig:circuit}
-    \end{figure}
 
