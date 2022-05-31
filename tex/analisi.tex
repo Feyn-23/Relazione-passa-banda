@@ -16,7 +16,7 @@ l'utilizzo dell'oscilloscopio digitale disponibile in laboratorio.
 In secondo luogo, per una valutazione a posteriori, sono stati raccolti tali dati tramite la DAQ configurata.
 In figura \ref{fig:tensione-tempo} sono mostrati tali andamenti per due valori significativi di $f$ in quanto vicini ai
 valori di taglio della frequenza, caratteristici di questo circuito.
-L'ampiezza dei segnali sulle varie componenti, così come lo sfasamento, è consistente con il modello atteso. Dal secondo
+L'ampiezza dei segnali sui vari componenti, così come lo sfasamento, è consistente con il modello atteso. Dal secondo
 grafico si nota come $V_R$ sia leggermente sfasato rispetto a $V_{gen}$, in accordo con quanto ci si aspetta appena
 dopo il fenomeno della risonanza.
 
@@ -38,7 +38,7 @@ come costanti, ottenendo $\sigma = 3.9 \times 10^{-3} Hz$.
 \begin{figure}[h]
     \centering
     \includegraphics[width=.8\textwidth]{../figs/Risposta-in-frequenza-ampiezze.pdf}
-    \caption{\emph{Andamento dell’ampiezza della tensione sulle componenti del circuito al variare
+    \caption{\emph{Andamento dell’ampiezza della tensione sui componenti del circuito al variare
     della frequenza del generatore con sovrapposte relative curve best-fit. Le incertezze sono state
     rappresentate con bande continue a causa della elevata densità di valori.}}
     \label{fig:ampiezzeRLC}
@@ -55,10 +55,10 @@ Gli andamenti attesi per le varie ampiezze della tensione sono i seguenti(vedi A
 \begin{equation}
     V_C = \frac{\frac{V_0}{\omega C}}{\sqrt{R_{tot}^2+{ \left(\omega L - \frac{1}{\omega C}\right)}^2}}
 \end{equation}
+dove $\omega$ rappresenta la pulsazione del generatore e $R_{tot}$ rappresenta la resistenza totale che si opponequicl al
+fluire della corrente.
 
 
-\noindent Si è distinto tra il valore della resistenza del resistore stesso, $R_r$, e quello della resistenza totale
-opposta nel circuito, $R_{tot}$.
 
 Da una prima analisi dei dati è emerso l'andamento caratteristico del filtro, con le ampiezze massimizzate
 in corrispondenza di un valore specifico di frequenza.
@@ -107,20 +107,20 @@ tale fenomeno.
 
 Le funzioni che descrivono gli andamenti attesi delle fasi sono le seguenti:
  \begin{equation}\label{eq:fase_R}
-     \phi_R = \arctan{\frac{1 - \omega^2 L C}{R \omega C}}
+     \phi_R = \arctan{\frac{1 - \omega^2 L C}{R_{tot} \omega C}}
  \end{equation}
  \begin{equation}
-     \phi_L = \arctan{\frac{1 - \omega^2 L C}{R \omega C}} + \frac{\pi}{2}
+     \phi_L = \arctan{\frac{1 - \omega^2 L C}{R_{tot}  \omega C}} + \frac{\pi}{2}
  \end{equation}
 \begin{equation}
-    \phi_C = \arctan{\frac{1 - \omega^2 L C}{R \omega C}} - \frac{\pi}{2}
+    \phi_C = \arctan{\frac{1 - \omega^2 L C}{R_{tot}  \omega C}} - \frac{\pi}{2}
 \end{equation}
 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=.75\textwidth]{../figs/Risposta-in-frequenza-fasi.pdf}
-    \caption{\emph{Andamento dello sfasamento della tensione sulle componenti nello sweep in frequenza. Le incertezze
+    \caption{\emph{Andamento dello sfasamento della tensione sui componenti nello sweep in frequenza. Le incertezze
     sono rappresentate come bande continue per l'alta densità di valori.}}
     \label{fig:fasi}
 \end{figure}
