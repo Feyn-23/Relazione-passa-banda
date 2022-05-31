@@ -30,25 +30,51 @@ intervalli di $50Hz$ fra $5kHz$ e $35KHz$. %#TODO non proprio cosi uguale
         \centering
         \begin{circuitikz}
             % Circuit
+%            \draw[line width=0.7]
+%            (2,7) to [sinusoidal voltage source, l_=$V_S$] (2,1)
+%            (2,7) to [resistor, l_=$R$]  ++(8,0)to [inductor, l_=$L$] ++(0,-6) to [capacitor,n=cap] +(-8,0) (cap.s) node[above]{$C$};
+%            \draw[line width=0.7]
+%            (3,3) to[short,*-] (2,3);
+%            \draw[line width=0.7]
+%            (3,5) to[short,*-] (2,5);
+%            \draw[line width=0.7]
+%            (5,6) to[short,*-] (5,7);
+%            \draw[line width=0.7]
+%            (7,6) to[short,*-] (7,7);
+%            \draw[line width=0.7]
+%            (9,5) to[short,*-] (10,5);
+%            \draw[line width=0.7]
+%            (9,3) to[short,*-] (10,3);
+%            \draw[line width=0.7]
+%            (5,2) to[short,*-] (5,1);
+%            \draw[line width=0.7]
+%            (7,2) to[short,*-] (7,1);
             \draw[line width=0.7]
-            (2,7) to [sinusoidal voltage source, l_=$V_S$] (2,1)
-            (2,7) to [resistor, l_=$R$]  ++(8,0)to [inductor, l_=$L$] ++(0,-6) to [capacitor,n=cap] +(-8,0) (cap.s) node[above]{$C$};
+            (2,5) to [sinusoidal voltage source, l_=$V_{\text{gen}}$] (2,1)
+            (2,5) to [resistor, l_=$R$]  ++(8,0)to [inductor, l_=$L$] ++(0,-4) to [capacitor, n=cap] +(-8,0)
+            (cap.s) node[above]{$C$};
+
+            %% capi di gen
             \draw[line width=0.7]
-            (3,3) to[short,*-] (2,3);
+            (3,2) to[short,*-] (2,2);
             \draw[line width=0.7]
-            (3,5) to[short,*-] (2,5);
+            (3,4) to[short,*-] (2,4);
+            %% capi di R
             \draw[line width=0.7]
-            (5,6) to[short,*-] (5,7);
+            (5,4) to[short,*-] (5,5);
             \draw[line width=0.7]
-            (7,6) to[short,*-] (7,7);
+            (7,4) to[short,*-] (7,5);
+            %% capi di L
             \draw[line width=0.7]
-            (9,5) to[short,*-] (10,5);
+            (9,4) to[short,*-] (10,4);
             \draw[line width=0.7]
-            (9,3) to[short,*-] (10,3);
+            (9,2) to[short,*-] (10,2);
+            %% capi di C
             \draw[line width=0.7]
             (5,2) to[short,*-] (5,1);
             \draw[line width=0.7]
             (7,2) to[short,*-] (7,1);
+
             % Grid
 % 		\draw[help lines] (0,0) grid (10,10)	;
         \end{circuitikz}
