@@ -16,11 +16,7 @@ l'utilizzo dell'oscilloscopio digitale disponibile in laboratorio.
 In secondo luogo, per una valutazione a posteriori, sono stati raccolti tali dati tramite la DAQ configurata.
 In figura \ref{fig:tensione-tempo} sono mostrati tali andamenti per due valori significativi di $f$ in quanto vicini ai
 valori di taglio della frequenza, caratteristici di questo circuito.
-L'ampiezza dei segnali sui vari componenti, così come lo sfasamento, è consistente con il modello atteso.
-%Dal secondo
-%grafico si nota come $V_R$ sia leggermente sfasato rispetto a $V_{gen}$, in accordo con quanto ci si aspetta appena
-%dopo il fenomeno della risonanza.
-
+L'ampiezza dei segnali sui vari componenti, così come lo sfasamento, è risultato consistente con il modello atteso.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,9 +26,9 @@ L'ampiezza dei segnali sui vari componenti, così come lo sfasamento, è consist
 Quella che segue è l'analisi della risposta in frequenza del circuito.
 È stato effettuato uno sweep in frequenza ad intervalli di $50Hz$ in un range di estremi $6kHz$ e $35kHz$, raccogliendo
 $500$ campioni con un sample rate di $250000$ campioni al secondo.
-I dati relativi alle ampiezza della tensione ai capi dei vari elementi sono visibili in Figura \ref{fig:ampiezzeRLC}
+I dati relativi alle ampiezze della tensione ai capi dei vari elementi sono visibili in Figura \ref{fig:ampiezzeRLC}
 assieme ai fit realizzati secondo i modelli ipotizzati.
-Non conoscendo in maniera precisa il funzionamento del subVI ``Extract singleton information'', che ha fornito le misurazioni
+Non conoscendo in maniera precisa il funzionamento del subVI ``Extract Singleton Information'', che ha fornito le misurazioni
 di ampiezze e fasi, è stato scelto di stimare le incertezze su tali dati tramite il rumore di fondo. È stata quindi
 calcolata la deviazione standard delle misure associate all’ampiezza della tensione agli estremi, che sono posti
 come costanti, ottenendo $\sigma = 3.9 \times 10^{-3} Hz$.
@@ -41,7 +37,7 @@ come costanti, ottenendo $\sigma = 3.9 \times 10^{-3} Hz$.
     \includegraphics[width=.8\textwidth]{../figs/Risposta-in-frequenza-ampiezze.pdf}
     \caption{\emph{Andamento dell’ampiezza della tensione sui componenti del circuito al variare
     della frequenza del generatore con sovrapposte relative curve best-fit. Le incertezze sono state
-    rappresentate con bande continue a causa della elevata densità di valori.}}
+    rappresentate con bande continue a causa dell'elevata densità di valori.}}
     \label{fig:ampiezzeRLC}
 \end{figure}
 
@@ -56,7 +52,7 @@ Gli andamenti attesi per le varie ampiezze della tensione sono i seguenti(vedi A
 \begin{equation}
     V_C = \frac{\frac{V_0}{\omega C}}{\sqrt{R_{tot}^2+{ \left(\omega L - \frac{1}{\omega C}\right)}^2}}
 \end{equation}
-dove $\omega$ rappresenta la pulsazione del generatore e $R_{tot}$ rappresenta la resistenza totale che si opponequicl al
+dove $\omega$ rappresenta la pulsazione del generatore e $R_{tot}$ rappresenta la resistenza totale che si oppone al
 fluire della corrente.
 
 
@@ -70,9 +66,10 @@ che provoca una caduta di potenziale tanto maggiore quanto lo è la corrente, ch
 condizioni di risonanza.
  Dai fit sono emersi valori del $\tilde{\chi}^2$ piuttosto elevati; ciò è dovuto ad una sottostima dell'incertezza sui
 valori di ampiezza di $V$. Pertanto, si è scelto di utilizzare come indice della goodness-of-fit
-il cosiddetto coefficiente di determinazione $R^2$.
+il cosiddetto coefficiente di determinazione $R^2$. \\
 Il fit più significativo è risultato essere quello dell'ampiezza di $V_R$, mostrato in Figura \ref{fig:ampiezzeR}, con
-un valore di $R^2 = 0.99946$. Da tale fit i valori dei componenti risultano essere $R_r = (1011.8 \pm 7.2) \Omega$,
+un valore di \\
+$R^2 = 0.99946$. Da tale fit i valori dei componenti risultano essere $R_r = (1011.8 \pm 7.2) \Omega$,
 $L = (4.705 \pm 0.017) \times 10^{-2}$ e $C = (1.500 \pm 0.005)\times 10^{-9}$ F. Si è scelto, inoltre, di utilizzare le
 ``incertezze standard'' calcolate come
 \[
@@ -81,7 +78,7 @@ $L = (4.705 \pm 0.017) \times 10^{-2}$ e $C = (1.500 \pm 0.005)\times 10^{-9}$ F
 dove $C_{kk}$ è l'elemento corrispondente al parametro $p_k$ nella diagonale della matrice di covarianza.
 Una prima stima della frequenza di risonanza è stata ricavata applicando l'equazione (\ref{eq:res-pulsation}) con i
 parametri ottenuti dal fit associato alla resistenza, ottenendo $f_0 = (18.95 \pm 0.05) kHz$, dove le incertezze sono
-state propagate in quadratura.
+state propagate in quadratura(Taylor,[1]).
 \begin{figure}[h]
     \centering
     \includegraphics[width=.77\textwidth]{../figs/Risposta-in-frequenza-ampiezza-resistenza.pdf}
@@ -132,7 +129,7 @@ si dovrebbe misurare è lo sfasamento rispetto al generatore.
 In figura \ref{fig:fasi} sono visibili tali dati assieme alle curve best-fit, ottenute considerando solamente i valori
 fra $10 kHz  \ \text{e} \ 25 kHz$ con un valore caratteristico di $R^2 = 0.991$. Il rumore di fondo è stato valutato in
 maniera analoga a quanto fatto per le ampiezze, estraendo la deviazione standard degli sfasamenti a $f$ costante, con
-$\sigma_{\phi} = 0.002$ rad.
+$\sigma = 0.002$ rad.
 
 
 Considerando il profilo dello sfasamento della tensione sulla resistenza, si è pensato di valutare la frequenza di risonanza

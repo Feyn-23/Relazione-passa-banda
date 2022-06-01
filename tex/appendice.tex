@@ -4,7 +4,7 @@
     $R^*$, rappresentante la resistenza aggiuntiva a $R_r$ che si oppone al fluire della
     corrente, in luogo di $R_{tot}$.
     Questa modifica è stata fatta a posteriori, osservando che l'esito del fit mostrava una
-    correlazione tra i parametri $R_r$ e $R_{\text{tot}}$ e quindi un'hessiana(ed una matrice di covarianza) non definita
+    correlazione tra i parametri $R_r$ e $R_{\text{tot}}$ e quindi un'hessiana (ed una matrice di covarianza) non definita
     positiva.
     Il problema è stato risolto con la modifica suddetta, ottenendo anche un miglior valore del coefficiente
     di determinazione.
@@ -13,7 +13,7 @@
     Tuttavia, anche isolandolo e cercando di valutarne la resistenza con il multimetro digitale, non è stata ottenuta
     nessuna conferma di questa ipotesi.
     Si suppone quindi che questa anomalia sia dovuta alla metodologia di acquisizione dati tramite \emph{LabView}.
-    \item Analizzando il circuito con il formalismo dei fasori e considerando il concetto di impedenza dei bipoli elementari, che
+    \item Analizzando il circuito con il formalismo dei fasori (Perfetti,[2]) e considerando il concetto di impedenza dei bipoli elementari, che
     generalizza il concetto di resistenza, si ha che l'impedenza totale corrisponde a ($j$ indica l'unità immaginaria):
     \[
         \mathbb{Z}_{tot} = \mathbb{Z}_R + \mathbb{Z}_L + \mathbb{Z}_C = R + j \left( \omega L - \frac{1}{\omega C} \right)
@@ -24,7 +24,8 @@
     \[
         V_R = \frac{R V_0}{ R + j \left( \omega L - \frac{1}{\omega C} \right)}
     \]
-    da cui si estraggono ampiezza(modulo) e fase, corrispondenti alle equazioni  (\ref{eq:amp-V_R}) e (\ref{eq:fase_R}),
+    da cui si estraggono ampiezza (modulo del numero complesso) e fase, corrispondenti alle equazioni  (\ref{eq:amp-V_R})
+    e (\ref{eq:fase_R}),
     rispettivamente.
 \end{itemize}
 
